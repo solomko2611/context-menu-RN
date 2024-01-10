@@ -1,0 +1,46 @@
+buildscript {
+    ext {
+        kotlinVersion = '1.7.0'
+        androidToolsVersion = '3.2.1'
+    }
+
+    repositories {
+        google()
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath "com.android.tools.build:gradle:${project.ext.androidToolsVersion}"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
+    }
+}
+
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+
+
+repositories {
+    google()
+}
+
+android {
+    compileSdkVersion 28
+
+    defaultConfig {
+        minSdkVersion 19
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0.0"
+    }
+    lintOptions {
+        abortOnError false
+    }
+
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${project.ext.kotlinVersion}"
+    implementation "me.saket.cascade:cascade:2.0.0-beta1"
+    implementation 'com.android.support:recyclerview-v7:28.0.0'
+    implementation "com.facebook.react:react-native:+"  // From node_modules
+}
